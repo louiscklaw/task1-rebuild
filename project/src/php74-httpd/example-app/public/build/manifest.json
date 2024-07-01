@@ -1,0 +1,18 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app-CaYPHhlF.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-D26zda6B.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  },
+  "resources/scss/argon-dashboard.scss": {
+    "file": "assets/argon-dashboard-DidiO-D1.css",
+    "src": "resources/scss/argon-dashboard.scss",
+    "isEntry": true
+  }
+}
