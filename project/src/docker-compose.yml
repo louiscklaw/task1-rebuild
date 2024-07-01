@@ -1,0 +1,48 @@
+volumes:
+  php74_vendor:
+
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: project
+      MYSQL_PASSWORD: project
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8089:80
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: project
+      PMA_PASSWORD: project
+      UPLOAD_LIMIT: 10G
+      MAX_EXECUTION_TIME: 1800
+    depends_on:
+      - mysql
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - 1025:1025
+      - 8025:8025
+
+  php74-httpd:
+    # image: composer
+    build: php74-httpd
+    ports:
+      - 8000:8000
+      - 5173:5173
+    volumes:
+      - php74_vendor:/app/vendor
+      - ./php74-httpd:/app
+      - ./php74-httpd/php-cli.ini:/usr/local/etc/php/conf.d/php-cli.ini
+    working_dir: /app
+    user: 1000:1000
+    command: sleep infinity
+    depends_on:
+      - mysql

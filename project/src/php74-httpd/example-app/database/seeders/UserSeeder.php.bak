@@ -1,0 +1,138 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
+
+use Illuminate\Database\Seeder;
+
+class UserSeeder extends Seeder
+{
+  /**
+   * Run the database seeds.
+   */
+  public function run(): void
+  {
+    DB::table('users')->insert(
+      [
+        'username' => 'admin',
+        'firstname' => 'Admin',
+        'lastname' => 'Admin',
+        'roles' => 1,
+        'email' => 'admin@ims.com',
+        'password' => bcrypt('secret')
+      ]
+    );
+
+    DB::table('users')->insert(
+      [
+        'username' => 'johntam',
+        'firstname' => 'John',
+        'lastname' => 'Tam',
+        'roles' => 1,
+        'email' => 'johntam@ims.com',
+        'password' => bcrypt('secret')
+      ]
+    );
+
+    DB::table('users')->insert(
+      [
+        'username' => 'marysmith',
+        'firstname' => 'Mary',
+        'lastname' => 'Smith',
+        'email' => 'marysmith@ims.com',
+        'roles' => 4,
+        'password' => bcrypt('secret')
+      ]
+    );
+
+    DB::table('users')->insert(
+      [
+        'username' => 'peterbrown',
+        'firstname' => 'Peter',
+        'lastname' => 'Brown',
+        'email' => 'peterbrown@ims.com',
+        'roles' => 6,
+        'password' => bcrypt('secret')
+      ]
+    );
+
+    DB::table('users')->insert(
+      [
+        'username' => "janedoe",
+        "firstname" => "Jane",
+        "lastname" => "Doe",
+        "email" => "janedoe@ims.com",
+        "roles" => 6,
+        "password" => bcrypt("secret")
+      ]
+    );
+
+    DB::table('users')->insert(
+      [
+        "username" => "davidwilson",
+        "firstname" => "David",
+        "lastname" => "Wilson",
+        "email" => "davidwilson@ims.com",
+        "roles" => 5,
+        "password" => bcrypt("secret")
+      ]
+    );
+
+
+    $faker = Faker::create();
+    foreach (range(0, 1) as $i) {
+      DB::table('users')->insert([
+        'username' => 'supervisor' . $i,
+        'firstname' => 'Supervisor',
+        'lastname' => $i,
+        'email' => 'supervisor' . $i . '@ims.com',
+        'roles' => 4,
+        'password' => bcrypt('secret')
+      ]);
+    }
+
+
+    $faker = Faker::create();
+    foreach (range(0, 1) as $i) {
+      DB::table('users')->insert([
+        'username' => 'developer' . $i,
+        'firstname' => 'Developers',
+        'lastname' => $i,
+        'email' => 'developer' . $i . '@ims.com',
+        'roles' => 6,
+        'password' => bcrypt('secret')
+      ]);
+    }
+
+    $faker = Faker::create();
+    foreach (range(0, 1) as $i) {
+      DB::table('users')->insert([
+        'username' => 'sales' . $i,
+        'firstname' => 'Sales',
+        'lastname' => $i,
+        'email' => 'sales' . $i . '@ims.com',
+        'roles' => 6,
+        'password' => bcrypt('secret')
+      ]);
+    }
+
+
+    $faker = Faker::create();
+    foreach (range(0, 1) as $i) {
+      DB::table('users')->insert([
+        'username' => 'user' . $i,
+        'firstname' => 'hello',
+        'lastname' => $i,
+        'email' => 'user' . $i . '@ims.com',
+        'roles' => 5,
+        'password' => bcrypt('secret')
+      ]);
+    }
+
+
+
+
+  }
+}
